@@ -1,5 +1,8 @@
 import type { Preview } from '@storybook/react';
-import '@simpleui/core/styles';
+import React from 'react';
+import { useEffect } from 'react';
+import { ThemeProvider } from '../../core/src/components/ThemeProvider';
+import '../../core/src/styles/index.css';
 
 const preview: Preview = {
   parameters: {
@@ -9,13 +12,6 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
-    },
-    backgrounds: {
-      default: 'light',
-      values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#0a0a0a' },
-      ],
     },
   },
   globalTypes: {
@@ -33,6 +29,34 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story, context) => {
+      const { theme } = context.globals;
+      
+      useEffect(() => {
+        const root = document.documentElement;
+        const body = document.body;
+        
+        if (theme === 'dark') {
+          root.classList.add('dark');
+          root.setAttribute('data-theme', 'dark');
+          body.style.backgroundColor = '#0a0a0a';
+          body.style.color = '#fafafa';
+        } else {
+          root.classList.remove('dark');
+          root.setAttribute('data-theme', 'light');
+          body.style.backgroundColor = '#ffffff';
+          body.style.color = '#171717';
+        }
+      }, [theme]);
+      
+      return React.createElement(
+        ThemeProvider,
+        { theme: theme as 'light' | 'dark', children: React.createElement(Story) }
+      );
+    },
+  ],
 };
 
 export default preview;
+
