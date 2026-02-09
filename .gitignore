@@ -42,6 +42,9 @@ yarn-error.log*
 # OS
 Thumbs.db
 
+# TypeScript
+*.tsbuildinfo
+
 # Storybook
 storybook-static/
 
