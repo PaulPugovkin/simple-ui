@@ -2,10 +2,13 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "composite": false
+    "skipDefaultLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"],
+  "references": [
+    { "path": "../../packages/core" }
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
