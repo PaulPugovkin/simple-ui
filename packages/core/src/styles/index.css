@@ -2,15 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --border: 214.3 31.8% 91.4%;
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --text-primary: 222.2 84% 4.9%;
+  --text-secondary: 215 20.2% 65.1%;
+}
+
+.dark {
+  --border: 217.2 32.6% 17.5%;
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --text-primary: 210 40% 98%;
+  --text-secondary: 215 20.2% 65.1%;
+}
+
 @layer base {
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-text-primary antialiased;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
