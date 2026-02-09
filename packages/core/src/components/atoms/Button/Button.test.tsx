@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from './Button';
@@ -42,7 +42,7 @@ describe('Button', () => {
   describe('Interactions', () => {
     it('calls onClick handler when clicked', async () => {
       const user = userEvent.setup();
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
 
       render(<Button onClick={handleClick}>Click me</Button>);
 
@@ -52,7 +52,7 @@ describe('Button', () => {
 
     it('does not call onClick when disabled', async () => {
       const user = userEvent.setup();
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
 
       render(<Button onClick={handleClick} disabled>Disabled</Button>);
 
@@ -62,7 +62,7 @@ describe('Button', () => {
 
     it('does not call onClick when loading', async () => {
       const user = userEvent.setup();
-      const handleClick = vi.fn();
+      const handleClick = jest.fn();
 
       render(<Button onClick={handleClick} loading>Loading</Button>);
 

@@ -1,9 +1,9 @@
 import { Button, ThemeProvider, useTheme } from '@simpleui/core';
-import '../../../packages/core/src/styles/index.css';
+import '@simpleui/core';
 
 function ThemeToggle() {
-  const { theme, toggleTheme, isDark } = useTheme();
-
+  const { toggleTheme, isDark } = useTheme();
+  
   return (
     <Button onClick={toggleTheme}>
       Switch to {isDark ? 'light' : 'dark'} theme
@@ -13,7 +13,7 @@ function ThemeToggle() {
 
 function App() {
   return (
-    <ThemeProvider theme="light">
+    <ThemeProvider theme="dark">
       <div className="min-h-screen bg-background text-text-primary p-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">SimpleUI Playground</h1>
