@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@simpleui/core': resolve(__dirname, '../../packages/core/src'),
+      '@simpleui/core/src/styles': resolve(__dirname, '../../packages/core/src/styles'),
     },
   },
 });

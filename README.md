@@ -6,16 +6,13 @@
 
 ```bash
 # Install the library
-npm install @simpleui/core
-
-# or with yarn
 yarn add @simpleui/core
 ```
 
 ## 📦 Installation
 
 ```bash
-npm install @simpleui/core
+yarn add @simpleui/core
 ```
 
 ## 🎨 Usage
@@ -67,7 +64,12 @@ Full documentation is available at [https://simpleui.dev](https://simpleui.dev)
 
 ## 🛠️ Development
 
+> **Note**: This project uses Yarn workspaces. Make sure you have Yarn installed before proceeding.
+
 ```bash
+# Install Yarn (if not already installed)
+npm install -g yarn
+
 # Install dependencies
 yarn install
 

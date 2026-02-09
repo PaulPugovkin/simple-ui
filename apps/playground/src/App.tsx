@@ -1,5 +1,5 @@
 import { Button, ThemeProvider, useTheme } from '@simpleui/core';
-import '@simpleui/core/styles';
+import '../../../packages/core/src/styles/index.css';
 
 function ThemeToggle() {
   const { theme, toggleTheme, isDark } = useTheme();
