@@ -21,6 +21,8 @@ out/
 .env.development.local
 .env.test.local
 .env.production.local
+.yarn/
+yarn.lock
 
 # Debug
 npm-debug.log*
