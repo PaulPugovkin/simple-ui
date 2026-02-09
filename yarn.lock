@@ -5799,9 +5799,12 @@ __metadata:
     "@storybook/test-runner": "npm:^0.16.0"
     "@types/react": "npm:^18.2.48"
     "@types/react-dom": "npm:^18.2.18"
+    autoprefixer: "npm:^10.4.17"
+    postcss: "npm:^8.4.33"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     storybook: "npm:^7.6.8"
+    tailwindcss: "npm:^3.4.1"
   languageName: unknown
   linkType: soft
 
