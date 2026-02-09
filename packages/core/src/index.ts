@@ -5,6 +5,9 @@ import './styles/index.css';
 export { Button } from './components/atoms/Button';
 export type { ButtonProps } from './components/atoms/Button';
 
+export { Input } from './components/atoms/Input';
+export type { InputProps, InputVariant } from './components/atoms/Input';
+
 // Theme
 export { ThemeProvider, useTheme } from './components/ThemeProvider';
 export { lightTheme, darkTheme, type Theme } from './theme';
