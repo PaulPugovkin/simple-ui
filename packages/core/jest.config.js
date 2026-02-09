@@ -16,17 +16,10 @@ module.exports = {
   testMatch: ['**/__tests__/**/*.test.{js,jsx,ts,tsx}', '**/?(*.)+(spec|test).{js,jsx,ts,tsx}'],
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: {
-        ignoreDeprecations: '5.0',
-      },
+      tsconfig: '<rootDir>/tsconfig.test.json',
+      jsx: 'react',
+      ignoreDeprecations: '5.0',
     }],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  globals: {
-    'ts-jest': {
-      tsconfig: {
-        jsx: 'react',
-      },
-    },
-  },
 };
