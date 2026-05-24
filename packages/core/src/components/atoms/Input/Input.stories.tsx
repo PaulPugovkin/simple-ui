@@ -15,6 +15,9 @@ const meta: Meta<typeof Input> = {
       control: 'select',
       options: ['default', 'error', 'success'],
     },
+    fullWidth: {
+      control: 'boolean',
+    },
   },
 };
 
@@ -24,6 +27,7 @@ type Story = StoryObj<typeof Input>;
 export const Default: Story = {
   args: {
     placeholder: 'Введите текст...',
+    fullWidth: true,
   },
 };
 
@@ -102,6 +106,18 @@ export const Controlled: Story = {
       />
     );
   },
+};
+
+export const WithoutFullWidth: Story = {
+  render: () => (
+    <div style={{ width: 240 }}>
+      <Input
+        label="Без fullWidth"
+        placeholder="Естественная ширина"
+        fullWidth={false}
+      />
+    </div>
+  ),
 };
 
 export const FormExample: Story = {

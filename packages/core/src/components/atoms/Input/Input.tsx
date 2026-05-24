@@ -12,14 +12,15 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   helperText?: string;
   errorClassName?: string;
   helperTextClassName?: string;
+  fullWidth?: boolean;
 }
 
 const variantStyles: Record<InputVariant, string> = {
   default:
-    'border-neutral-300 focus:border-primary-500 focus:ring-primary-500 text-text-primary dark:border-neutral-600 dark:focus:border-primary-400 dark:focus:ring-primary-400',
-  error: 'border-danger-500 focus:border-danger-500 focus:ring-danger-500 text-text-primary dark:border-danger-400 dark:focus:border-danger-400 dark:focus:ring-danger-400',
+    'border-neutral-300 text-text-primary dark:border-neutral-600',
+  error: 'border-danger-500 text-text-primary dark:border-danger-400',
   success:
-    'border-success-500 focus:border-success-500 focus:ring-success-500 text-text-primary dark:border-success-400 dark:focus:border-success-400 dark:focus:ring-success-400',
+    'border-success-500 text-text-primary dark:border-success-400',
 };
 
 const sizeStyles: Record<Size, string> = {
@@ -39,6 +40,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       helperText,
       errorClassName,
       helperTextClassName,
+      fullWidth = true,
       disabled,
       id,
       ...props
@@ -50,7 +52,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const helperId = `${inputId}-helper`;
 
     return (
-      <div className="w-full">
+      <div className={cn(fullWidth && 'w-full')}>
         {label && (
           <label
             htmlFor={inputId}
@@ -68,7 +70,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             error ? errorId : helperText ? helperId : undefined
           }
           className={cn(
-            'block w-full rounded-lg border bg-white dark:bg-neutral-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
+            'block rounded-lg border bg-white dark:bg-neutral-800 transition-colors focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed',
+            fullWidth && 'w-full',
             variantStyles[variant],
             sizeStyles[inputSize],
             className

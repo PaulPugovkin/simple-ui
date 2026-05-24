@@ -91,6 +91,22 @@ function App() {
             </section>
 
             <section>
+              <h2 className="text-2xl font-semibold mb-4">Input Without FullWidth</h2>
+              <div className="flex gap-4 flex-wrap">
+                <Input
+                  label="Inline Input"
+                  placeholder="Natural width"
+                  fullWidth={false}
+                />
+                <Input
+                  label="Another"
+                  placeholder="Inline"
+                  fullWidth={false}
+                />
+              </div>
+            </section>
+
+            <section>
               <h2 className="text-2xl font-semibold mb-4">Input States</h2>
               <div className="space-y-4 max-w-md">
                 <Input label="Disabled Input" disabled value="Disabled value" />
@@ -160,6 +176,21 @@ function App() {
                     { value: '2', label: 'Option 2' },
                   ]}
                   placeholder="Large select"
+                />
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Select Without FullWidth</h2>
+              <div className="flex gap-4 flex-wrap">
+                <Select
+                  label="Inline Select"
+                  options={[
+                    { value: '1', label: 'Option 1' },
+                    { value: '2', label: 'Option 2' },
+                  ]}
+                  placeholder="Natural width"
+                  fullWidth={false}
                 />
               </div>
             </section>

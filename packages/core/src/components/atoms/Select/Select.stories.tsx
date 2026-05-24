@@ -15,6 +15,9 @@ const meta: Meta<typeof Select> = {
       control: 'select',
       options: ['default', 'error', 'success'],
     },
+    fullWidth: {
+      control: 'boolean',
+    },
   },
 };
 
@@ -135,6 +138,19 @@ export const EmptyOptions: Story = {
     options: [],
     placeholder: 'Нет вариантов...',
   },
+};
+
+export const WithoutFullWidth: Story = {
+  render: () => (
+    <div style={{ width: 240 }}>
+      <Select
+        label="Без fullWidth"
+        options={defaultOptions}
+        placeholder="Естественная ширина"
+        fullWidth={false}
+      />
+    </div>
+  ),
 };
 
 export const FormExample: Story = {
