@@ -15,7 +15,9 @@ export interface SelectProps {
   size?: Size;
   label?: string;
   error?: string;
+  errorClassName?: string;
   helperText?: string;
+  helperTextClassName?: string;
   placeholder?: string;
   options: SelectOption[];
   value?: string;
@@ -50,7 +52,9 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       size = 'md',
       label,
       error,
+      errorClassName,
       helperText,
+      helperTextClassName,
       placeholder = 'Выберите...',
       options,
       value: controlledValue,
@@ -251,12 +255,12 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
           )}
         </div>
         {error && (
-          <p id={errorId} className="mt-1 text-sm text-danger-600">
+          <p id={errorId} className={cn('mt-1 text-sm text-danger-600', errorClassName)}>
             {error}
           </p>
         )}
         {helperText && !error && (
-          <p id={helperId} className="mt-1 text-sm text-text-secondary">
+          <p id={helperId} className={cn('mt-1 text-sm text-text-secondary', helperTextClassName)}>
             {helperText}
           </p>
         )}

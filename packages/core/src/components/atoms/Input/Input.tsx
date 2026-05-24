@@ -10,6 +10,8 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   label?: string;
   error?: string;
   helperText?: string;
+  errorClassName?: string;
+  helperTextClassName?: string;
 }
 
 const variantStyles: Record<InputVariant, string> = {
@@ -35,6 +37,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       label,
       error,
       helperText,
+      errorClassName,
+      helperTextClassName,
       disabled,
       id,
       ...props
@@ -72,12 +76,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {error && (
-          <p id={errorId} className="mt-1 text-sm text-danger-600">
+          <p id={errorId} className={cn('mt-1 text-sm text-danger-600', errorClassName)}>
             {error}
           </p>
         )}
         {helperText && !error && (
-          <p id={helperId} className="mt-1 text-sm text-text-secondary">
+          <p id={helperId} className={cn('mt-1 text-sm text-text-secondary', helperTextClassName)}>
             {helperText}
           </p>
         )}
