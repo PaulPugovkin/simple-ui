@@ -64,7 +64,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             error ? errorId : helperText ? helperId : undefined
           }
           className={cn(
-            'block w-full rounded-lg border bg-background transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
+            'block w-full rounded-lg border bg-white dark:bg-neutral-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
             variantStyles[variant],
             sizeStyles[inputSize],
             className
