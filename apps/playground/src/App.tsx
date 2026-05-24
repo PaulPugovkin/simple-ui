@@ -1,5 +1,23 @@
-import { Button, Input, ThemeProvider, useTheme } from '@simpleui/core';
+import { useState } from 'react';
+import { Button, Input, Select, ThemeProvider, useTheme } from '@simpleui/core';
 import '@simpleui/core';
+
+function ControlledSelect() {
+  const [value, setValue] = useState('');
+  return (
+    <Select
+      label="Controlled Select"
+      value={value}
+      onChange={(v) => setValue(v)}
+      options={[
+        { value: 'ru', label: 'Russia' },
+        { value: 'kz', label: 'Kazakhstan' },
+        { value: 'by', label: 'Belarus' },
+      ]}
+      placeholder="Choose..."
+    />
+  );
+}
 
 function ThemeToggle() {
   const { toggleTheme, isDark } = useTheme();
@@ -77,6 +95,79 @@ function App() {
               <div className="space-y-4 max-w-md">
                 <Input label="Disabled Input" disabled value="Disabled value" />
                 <Input label="Readonly Input" readOnly value="Readonly value" />
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Select</h2>
+              <div className="space-y-4 max-w-md">
+                <Select
+                  label="Country"
+                  options={[
+                    { value: 'ru', label: 'Russia' },
+                    { value: 'kz', label: 'Kazakhstan' },
+                    { value: 'by', label: 'Belarus' },
+                    { value: 'cn', label: 'China', disabled: true },
+                  ]}
+                  placeholder="Choose a country..."
+                />
+                <Select
+                  label="With Error"
+                  options={[
+                    { value: 'opt1', label: 'Option 1' },
+                    { value: 'opt2', label: 'Option 2' },
+                  ]}
+                  error="This field is required"
+                />
+                <Select
+                  label="Disabled"
+                  disabled
+                  value="opt1"
+                  options={[
+                    { value: 'opt1', label: 'Option 1' },
+                    { value: 'opt2', label: 'Option 2' },
+                  ]}
+                />
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Select Sizes</h2>
+              <div className="space-y-4 max-w-md">
+                <Select
+                  label="Small"
+                  size="sm"
+                  options={[
+                    { value: '1', label: 'Option 1' },
+                    { value: '2', label: 'Option 2' },
+                  ]}
+                  placeholder="Small select"
+                />
+                <Select
+                  label="Medium"
+                  size="md"
+                  options={[
+                    { value: '1', label: 'Option 1' },
+                    { value: '2', label: 'Option 2' },
+                  ]}
+                  placeholder="Medium select"
+                />
+                <Select
+                  label="Large"
+                  size="lg"
+                  options={[
+                    { value: '1', label: 'Option 1' },
+                    { value: '2', label: 'Option 2' },
+                  ]}
+                  placeholder="Large select"
+                />
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Select Controlled</h2>
+              <div className="max-w-md">
+                <ControlledSelect />
               </div>
             </section>
 
